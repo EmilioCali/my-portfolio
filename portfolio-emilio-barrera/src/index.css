@@ -7,7 +7,7 @@
   --color-text-light-secondary: #64748B;
 
   /* ===== Colors — Dark (se mantiene para otras secciones) ===== */
-  --color-bg-dark: #0B1120;
+  --color-bg-dark: #05070D;
   --color-bg-dark-secondary: #111827;
   --color-text-dark: #F8FAFC;
   --color-text-dark-secondary: #CBD5E1;
@@ -52,3 +52,8 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
 }
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+} 
