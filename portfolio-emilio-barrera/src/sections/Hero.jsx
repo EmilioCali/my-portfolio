@@ -21,7 +21,7 @@ const itemVariants = {
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center text-text-light">
+        <section data-cursor="light" className="relative min-h-screen flex items-center text-text-light">
             <HeroBackground />
 
             <Container>

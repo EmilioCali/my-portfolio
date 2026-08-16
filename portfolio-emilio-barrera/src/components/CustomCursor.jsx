@@ -1,26 +1,35 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 export default function CustomCursor() {
     const [isVisible, setIsVisible] = useState(false)
-
-    // el punto central sigue al mouse de forma instantánea
+    const [cursorTone, setCursorTone] = useState('dark')
+    const frameRef = useRef(null)
+    const pointerRef = useRef({ x: 0, y: 0 })
     const dotX = useMotionValue(0)
     const dotY = useMotionValue(0)
-
-    // el círculo sigue con un pequeño retraso elástico (efecto "trailing")
     const ringX = useSpring(dotX, { damping: 25, stiffness: 300, mass: 0.5 })
     const ringY = useSpring(dotY, { damping: 25, stiffness: 300, mass: 0.5 })
 
     useEffect(() => {
-        // Solo activar en dispositivos con puntero fino (mouse), no en touch
         const hasFinePointer = window.matchMedia('(pointer: fine)').matches
         if (!hasFinePointer) return
 
         function handleMove(e) {
             dotX.set(e.clientX)
             dotY.set(e.clientY)
-            if (!isVisible) setIsVisible(true)
+            setIsVisible(true)
+
+            pointerRef.current = { x: e.clientX, y: e.clientY }
+            if (frameRef.current) return
+
+            frameRef.current = window.requestAnimationFrame(() => {
+                const { x, y } = pointerRef.current
+                const section = document.elementFromPoint(x, y)?.closest('[data-cursor]')
+                const nextTone = section?.getAttribute('data-cursor') === 'dark' ? 'light' : 'dark'
+                setCursorTone((currentTone) => currentTone === nextTone ? currentTone : nextTone)
+                frameRef.current = null
+            })
         }
         function handleLeave() {
             setIsVisible(false)
@@ -28,12 +37,12 @@ export default function CustomCursor() {
 
         window.addEventListener('mousemove', handleMove)
         document.body.addEventListener('mouseleave', handleLeave)
-
         return () => {
             window.removeEventListener('mousemove', handleMove)
             document.body.removeEventListener('mouseleave', handleLeave)
+            if (frameRef.current) window.cancelAnimationFrame(frameRef.current)
         }
-    }, [dotX, dotY, isVisible])
+    }, [dotX, dotY])
 
     if (typeof window !== 'undefined' && !window.matchMedia('(pointer: fine)').matches) {
         return null
@@ -41,19 +50,14 @@ export default function CustomCursor() {
 
     return (
         <div
-            className="fixed inset-0 pointer-events-none z-[9999]"
-            style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 0.3s' }}
+            className="cursor-layer"
+            style={{
+                opacity: isVisible ? 1 : 0,
+                '--cursor-color': cursorTone === 'light' ? '#F8FAFC' : '#121010',
+            }}
         >
-            {/* Punto central */}
-            <motion.div
-                className="fixed top-0 left-0 w-1.5 h-1.5 rounded-full bg-white"
-                style={{ x: dotX, y: dotY, translateX: '-50%', translateY: '-50%' }}
-            />
-            {/* Círculo exterior */}
-            <motion.div
-                className="fixed top-0 left-0 w-8 h-8 rounded-full border border-white/50"
-                style={{ x: ringX, y: ringY, translateX: '-50%', translateY: '-50%' }}
-            />
+            <motion.div className="cursor-dot" style={{ x: dotX, y: dotY }} />
+            <motion.div className="cursor-ring" style={{ x: ringX, y: ringY }} />
         </div>
     )
 }

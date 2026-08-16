@@ -19,20 +19,20 @@ const container = {
 
 export default function About() {
     return (
-        <section className="bg-bg-dark text-text-dark py-32 md:py-48">
+        <section data-cursor="dark" className="bg-bg-dark text-text-dark py-32 md:py-48">
             <Container className="max-w-screen-2xl">
-                <div className="grid md:grid-cols-[1fr_0.85fr] gap-16 md:gap-40 items-start">
+                <div className="grid md:grid-cols-[minmax(0,1.35fr)_minmax(0,0.9fr)] gap-16 md:gap-x-48 lg:gap-x-56 items-start">
 
                     <motion.div
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.4 }}
                         variants={container}
-                        className="flex flex-col gap-10 text-center md:text-left pt-4 md:pt-8"
+                        className="flex flex-col gap-12 text-center md:text-left pt-4 md:pt-8"
                     >
                         <motion.h2
                             variants={fadeUp}
-                            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-white"
+                            className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-white uppercase"
                         >
                             Desarrollador Junior{' '}
                             <span className="inline-block bg-white text-bg-dark px-3 -skew-x-6 italic">
@@ -50,9 +50,9 @@ export default function About() {
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.4 }}
                         variants={fadeUp}
-                        className="relative"
+                        className="relative md:justify-self-end w-full"
                     >
-                        <div className="relative aspect-[4/5] max-w-sm md:max-w-none mx-auto rounded-2xl overflow-hidden bg-bg-dark-secondary">
+                        <div className="relative aspect-[4/5] max-w-sm md:max-w-[30rem] md:ml-auto rounded-2xl overflow-hidden bg-bg-dark-secondary">
                             <img
                                 src={mePhoto}
                                 alt="Emilio Barrera"
