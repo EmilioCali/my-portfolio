@@ -8,7 +8,7 @@
    ============================================================ */
 @theme {
   /* --- Colores: Tema claro (usado en Hero y Tecnologías) --- */
-  --color-bg-light: ##000000;
+  --color-bg-light: #FFFFFF;
   --color-text-light: #121010;
   --color-text-light-secondary: #64748B;
 
@@ -52,13 +52,14 @@
    RESET / BASE GLOBAL
    Reglas que aplican a todo el sitio, sin importar la sección
    ============================================================ */
-* {
+html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 html,
@@ -66,6 +67,20 @@ body {
   /* Fondo base por defecto: evita "flash" blanco/oscuro entre secciones
      al cargar la página o al hacer scroll rápido */
   background-color: var(--color-bg-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Oculta el cursor nativo del sistema en dispositivos con mouse,

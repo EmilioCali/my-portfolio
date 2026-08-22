@@ -72,7 +72,7 @@ function YearColumn({ period, color }) {
 
 export default function Experience() {
     return (
-        <section data-cursor="dark" className="bg-black text-white py-24 md:py-32">
+        <section id="experiencia" data-cursor="dark" className="bg-black py-20 text-white sm:py-24 md:py-32">
             <Container className="max-w-screen-2xl">
 
                 <motion.h2
@@ -80,7 +80,7 @@ export default function Experience() {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.4 }}
                     variants={fadeUp}
-                    className="text-5xl md:text-6xl font-bold tracking-tight mb-20 md:mb-28"
+                    className="mb-14 text-4xl font-bold tracking-tight sm:mb-20 sm:text-5xl md:mb-28 md:text-6xl"
                 >
                     Experiencia
                 </motion.h2>
@@ -91,13 +91,13 @@ export default function Experience() {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
                     variants={container}
-                    className="relative grid grid-cols-3 gap-6 md:gap-10 mb-14"
+                    className="relative mb-12 grid grid-cols-3 gap-3 sm:mb-14 sm:gap-6 md:gap-10"
                 >
                     <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-px bg-white/15" />
 
                     {timeline.map((period, i) => (
                         <div key={period.year} className="relative flex justify-start">
-                            <div className="relative z-10 bg-black pr-4">
+                            <div className="relative z-10 bg-black pr-2 sm:pr-4">
                                 <TimelineMarker color={PERIOD_COLORS[i]} isCurrent={period.isCurrent} />
                             </div>
                         </div>

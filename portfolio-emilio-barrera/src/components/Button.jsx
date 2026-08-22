@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 const variants = {
-    primary: "bg-text-light text-bg-light hover:bg-text-light/85",
+    primary: "bg-black text-white hover:bg-black/85",
     secondary:
         "bg-white border border-text-light/15 text-text-light hover:border-text-light/30",
 };

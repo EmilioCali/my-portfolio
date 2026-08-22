@@ -3,6 +3,7 @@ import About from './sections/About'
 import Technologies from './sections/Technologies'
 import Experience from './sections/Experience'
 import Contact from './sections/Contact'
+import Footer from './components/Footer'
 import CustomCursor from './components/CustomCursor'
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Technologies />
       <Experience />
       <Contact />
+      <Footer />
     </main>
   )
 }

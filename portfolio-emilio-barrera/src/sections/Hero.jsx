@@ -56,8 +56,8 @@ export default function Hero() {
                     </motion.p>
 
                     <motion.div variants={itemVariants} className="flex gap-4 mt-4">
-                        <Button variant="primary" as="a" href="#proyectos">
-                            Ver proyectos
+                        <Button variant="primary" as="a" href="/CV_Emilio_Barrera.pdf" download="CV_Emilio_Barrera.pdf">
+                            Descargar CV
                         </Button>
                         <Button variant="secondary" as="a" href="#contacto">
                             Contacto
