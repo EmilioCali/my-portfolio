@@ -45,8 +45,7 @@ export default function AboutTextRotator() {
             <div
                 onMouseEnter={() => (isPaused.current = true)}
                 onMouseLeave={() => (isPaused.current = false)}
-                className="relative min-h-[160px] md:min-h-[130px] flex items-start px-0 md:px-14"
-            >
+                className="relative min-h-[180px] md:min-h-[150px] flex items-start px-0 md:px-16"            >
                 <button
                     onClick={() => go(index - 1, -1)}
                     className={`${arrowClass} left-0`}
@@ -64,7 +63,7 @@ export default function AboutTextRotator() {
                         animate="center"
                         exit="exit"
                         transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-lg md:text-xl font-light leading-relaxed max-w-xl mx-auto md:mx-0 text-justify"
+                        className="text-xl md:text-2xl font-light leading-relaxed max-w-2xl mx-auto md:mx-0 text-justify"
                         style={{
                             background: 'linear-gradient(90deg, #94A3B8 0%, #F8FAFC 60%)',
                             WebkitBackgroundClip: 'text',
@@ -84,8 +83,8 @@ export default function AboutTextRotator() {
                     <ChevronRight size={16} />
                 </button>
             </div>
+            <div className="flex justify-center gap-2">
 
-            <div className="flex justify-center md:justify-start gap-2">
                 {statements.map((_, i) => (
                     <button
                         key={i}
