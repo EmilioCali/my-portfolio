@@ -1,20 +1,21 @@
-import { motion } from 'framer-motion'
-import { ArrowRight } from 'lucide-react'
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const variants = {
-    primary: 'bg-text-light text-bg-light hover:bg-text-light/85',
-    secondary: 'bg-white border border-text-light/15 text-text-light hover:border-text-light/30',
-}
+    primary: "bg-text-light text-bg-light hover:bg-text-light/85",
+    secondary:
+        "bg-white border border-text-light/15 text-text-light hover:border-text-light/30",
+};
 
 export default function Button({
     children,
-    variant = 'primary',
-    as = 'button',
+    variant = "primary",
+    as = "button",
     showArrow = false,
-    className = '',
+    className = "",
     ...props
 }) {
-    const Component = motion[as]
+    const Component = motion[as];
 
     return (
         <Component
@@ -28,11 +29,11 @@ export default function Button({
         transition-colors duration-200
         ${variants[variant]}
         ${className}
-      `}
+        `}
             {...props}
         >
             {children}
             {showArrow && <ArrowRight size={16} />}
         </Component>
-    )
+    );
 }

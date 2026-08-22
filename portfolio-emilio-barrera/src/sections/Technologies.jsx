@@ -13,15 +13,18 @@ const fadeUp = {
 
 export default function Technologies() {
   return (
-    <section data-cursor="dark" className="bg-bg-dark text-text-dark py-24 md:py-32 overflow-hidden">
+    <section data-cursor="dark" className="bg-black text-white pt-8 pb-4 md:pt-10 md:pb-8 overflow-hidden">
       <Container>
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
-          className="flex flex-col gap-3 mb-16"
+          className="flex flex-col items-center gap-2 mb-6"
         >
+          <span className="text-xs md:text-sm font-mono uppercase tracking-[0.3em] text-white">
+            Background tecnológico
+          </span>
         </motion.div>
       </Container>
 
@@ -34,6 +37,9 @@ export default function Technologies() {
       >
         <TechMarquee />
       </motion.div>
+
+      {/* Línea divisoria, marca el cierre de la sección */}
+      <div className="mt-8 md:mt-10 border-t border-white/15" />
     </section>
   )
 }

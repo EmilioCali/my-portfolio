@@ -1,7 +1,7 @@
 import Hero from './sections/Hero'
 import About from './sections/About'
 import Technologies from './sections/Technologies'
-import Projects from './sections/Projects'
+import Experience from './sections/Experience'
 import CustomCursor from './components/CustomCursor'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <Hero />
       <About />
       <Technologies />
-      <Projects />
+      <Experience />
     </main>
   )
 }

@@ -1,38 +1,87 @@
 @import "tailwindcss";
 
+/* ============================================================
+   DESIGN SYSTEM — Variables globales del sitio
+   Colores, tipografía y tokens usados por Tailwind v4 (@theme
+   genera automáticamente las clases utilitarias correspondientes,
+   ej. bg-bg-light, text-text-dark, font-space-grotesk, etc.)
+   ============================================================ */
 @theme {
-  /* ===== Colors — Light (ahora es el tema base del Hero) ===== */
+  /* --- Colores: Tema claro (usado en Hero y Tecnologías) --- */
   --color-bg-light: #F8FAFC;
   --color-text-light: #121010;
   --color-text-light-secondary: #64748B;
 
-  /* ===== Colors — Dark (se mantiene para otras secciones) ===== */
+  /* --- Colores: Tema oscuro (usado en About) --- */
   --color-bg-dark: #05070D;
   --color-bg-dark-secondary: #111827;
   --color-text-dark: #F8FAFC;
   --color-text-dark-secondary: #CBD5E1;
 
-  /* ===== Colors — Brand ===== */
+  /* --- Colores: Marca / acento (usados en botones, hovers, glows) --- */
   --color-primary: #2217A6;
   --color-secondary: #6E5699;
   --color-mesh: #0F172A;
+  /* color base del fondo animado del Hero */
 
-  /* ===== Typography ===== */
+  /* --- Tipografía: familias --- */
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  /* fuente base del sitio */
   --font-space-grotesk: "Space Grotesk", sans-serif;
+  /* asignada a tecnologías con identidad "técnica" */
   --font-manrope: "Manrope", sans-serif;
+  /* asignada a tecnologías backend/cloud */
   --font-jetbrains: "JetBrains Mono", monospace;
+  /* asignada a bases de datos y herramientas de código */
   --font-lato: "Lato", sans-serif;
+  /* asignada a .NET */
   --font-fraunces: "Fraunces", serif;
+  /* asignada a MongoDB */
 
+  /* --- Tipografía: tamaño custom del heading del Hero --- */
   --text-hero: 4rem;
   --text-hero--line-height: 1.05;
   --text-hero-lg: 6.5rem;
   --text-hero-lg--line-height: 1.02;
 
+  /* --- Sombras --- */
   --shadow-soft: 0 4px 24px -4px rgb(0 0 0 / 0.08);
 }
 
+/* ============================================================
+   RESET / BASE GLOBAL
+   Reglas que aplican a todo el sitio, sin importar la sección
+   ============================================================ */
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  /* Fondo base por defecto: evita "flash" blanco/oscuro entre secciones
+     al cargar la página o al hacer scroll rápido */
+  background-color: var(--color-bg-light);
+}
+
+/* Oculta el cursor nativo del sistema en dispositivos con mouse,
+   ya que el sitio usa un cursor custom (ver sección CURSOR CUSTOM abajo) */
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+
+/* ============================================================
+  SECCIÓN: HERO
+  Fondo animado tipo "malla" (mesh gradient con efecto cortina)
+  detrás del nombre/heading principal
+   ============================================================ */
 .mesh-gradient {
   background:
     radial-gradient(ellipse 60% 50% at 10% 10%, color-mix(in srgb, var(--color-mesh) 12%, transparent) 0%, transparent 60%),
@@ -43,31 +92,28 @@
 }
 
 @keyframes curtain-drift {
-  0%   { background-position: 0% 0%; }
-  50%  { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
-}
+  0% {
+    background-position: 0% 0%;
+  }
 
-/* Reset base */
-* {
-  scroll-behavior: smooth;
-}
+  50% {
+    background-position: 100% 100%;
+  }
 
-body {
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-}
-@media (pointer: fine) {
-  * {
-    cursor: none !important;
+  100% {
+    background-position: 0% 0%;
   }
 }
 
-html,
-body {
-  background-color: var(--color-bg-light);
-}
 
+/* ============================================================
+  GLOBAL: CURSOR CUSTOM
+  Cursor propio (punto + anillo) que reemplaza al cursor nativo.
+  Cambia de color automáticamente según el fondo de la sección
+  sobre la que está (ver data-cursor="light|dark" en cada
+  <section>, leído por CustomCursor.jsx vía elementFromPoint).
+  No es exclusivo de una sección — vive en todo el sitio.
+   ============================================================ */
 .cursor-layer {
   position: fixed;
   inset: 0;
@@ -101,20 +147,17 @@ body {
   transition: border-color 0.2s ease;
 }
 
-@keyframes tech-poster-scroll-up {
-  from { transform: translateY(0); }
-  to { transform: translateY(-50%); }
-}
 
-@keyframes tech-poster-scroll-down {
-  from { transform: translateY(-50%); }
-  to { transform: translateY(0); }
-}
-
+/* ============================================================
+  SECCIÓN: TECNOLOGÍAS
+  Marquee horizontal infinito (fila de tecnologías en loop),
+  usado por TechMarquee.jsx
+   ============================================================ */
 @keyframes marquee-scroll {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
