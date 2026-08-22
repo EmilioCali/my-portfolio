@@ -8,7 +8,7 @@
    ============================================================ */
 @theme {
   /* --- Colores: Tema claro (usado en Hero y Tecnologías) --- */
-  --color-bg-light: #F8FAFC;
+  --color-bg-light: ##000000;
   --color-text-light: #121010;
   --color-text-light-secondary: #64748B;
 
