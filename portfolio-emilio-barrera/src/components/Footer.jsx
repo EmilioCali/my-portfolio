@@ -48,7 +48,7 @@ export default function Footer() {
       <Container className="max-w-screen-2xl">
         <div className="flex flex-col gap-5 text-xs sm:flex-row sm:items-center sm:justify-between">
           <p className="font-mono tracking-wide text-white/45">
-            © {currentYear} Emilio Barrera. Todos los derechos reservados.
+            © {currentYear} Emilio Cali. Todos los derechos reservados.
           </p>
 
           <div className="flex items-center gap-3">

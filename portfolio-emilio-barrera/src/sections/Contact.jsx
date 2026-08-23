@@ -1,12 +1,19 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight, CalendarDays } from 'lucide-react'
 import { SiGithub, SiGmail } from 'react-icons/si'
-import { FaLinkedin } from 'react-icons/fa'
+import { FaLinkedin, FaWhatsapp } from 'react-icons/fa'
 import Container from '../components/Container'
 
 const ease = [0.16, 1, 0.3, 1]
 
 const contactLinks = [
+  {
+    label: 'WhatsApp',
+    value: 'Emilio Cali',
+    href: 'https://wa.me/50241978981',
+    icon: FaWhatsapp,
+    color: '#25D366',
+  },
   {
     label: 'Email',
     value: 'emiliocali56@gmail.com',
