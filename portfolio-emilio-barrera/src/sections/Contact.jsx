@@ -51,17 +51,17 @@ const fadeUp = {
 
 export default function Contact() {
   return (
-    <section id="contacto" data-cursor="dark" className="bg-black text-text-dark">
+    <section id="contacto" data-cursor="dark" className="overflow-hidden bg-black text-text-dark">
       <div className="h-px w-full bg-white/15" />
       <Container className="max-w-screen-2xl">
-        <div className="py-24 md:py-32">
+        <div className="py-16 sm:py-24 md:py-32">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={fadeUp} className="grid gap-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,0.9fr)] lg:gap-24">
             <div>
               <span className="flex items-center gap-2 font-mono text-sm text-text-dark-secondary">
                 <span className="h-px w-6 bg-text-dark-secondary" />
                 Contacto
               </span>
-              <h2 className="mt-5 max-w-3xl text-5xl font-bold uppercase leading-[1.03] tracking-tight md:text-7xl">
+              <h2 className="mt-5 max-w-3xl break-words text-[clamp(2.35rem,11vw,4.5rem)] font-bold uppercase leading-[1.03] tracking-tight">
                 Construyamos algo{' '}
                 <span className="inline-block -skew-x-6 bg-white px-3 italic text-text-light">útil</span>
               </h2>
@@ -69,7 +69,7 @@ export default function Contact() {
                 ¿Tienes una idea, una oportunidad o un reto técnico? Estoy disponible para conversar y convertirlo en una solución funcional.
               </p>
               <a href={contactLinks[0].href} className="mt-9 inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-semibold text-text-light transition-transform duration-300 hover:-translate-y-1">
-                Escríbeme por email
+                Escríbeme por WhatsApp
                 <ArrowUpRight size={17} />
               </a>
             </div>
