@@ -54,12 +54,13 @@
    ============================================================ */
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 html,
@@ -67,6 +68,13 @@ body {
   /* Fondo base por defecto: evita "flash" blanco/oscuro entre secciones
      al cargar la página o al hacer scroll rápido */
   background-color: var(--color-bg-light);
+}
+
+#root,
+main {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -80,6 +88,10 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .marquee-track {
+    animation: marquee-scroll 45s linear infinite !important;
   }
 }
 
@@ -180,4 +192,11 @@ body {
 
 .marquee-track {
   animation: marquee-scroll 45s linear infinite;
+  will-change: transform;
+}
+
+@media (max-width: 639px) {
+  .marquee-track {
+    animation-duration: 38s;
+  }
 }

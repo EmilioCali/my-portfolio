@@ -15,7 +15,7 @@ const statements = [
 const AUTOPLAY_MS = 5500
 
 const arrowClass =
-    'hidden md:flex absolute top-1 w-9 h-9 rounded-full border border-text-dark-secondary/25 items-center justify-center text-text-dark-secondary hover:border-primary hover:text-primary transition-colors duration-200'
+    'flex absolute bottom-0 h-10 w-10 items-center justify-center rounded-full border border-text-dark-secondary/25 text-text-dark-secondary transition-colors duration-200 hover:border-primary hover:text-primary md:top-1 md:bottom-auto md:h-9 md:w-9'
 
 export default function AboutTextRotator() {
     const [index, setIndex] = useState(0)
@@ -45,7 +45,8 @@ export default function AboutTextRotator() {
             <div
                 onMouseEnter={() => (isPaused.current = true)}
                 onMouseLeave={() => (isPaused.current = false)}
-                className="relative min-h-[180px] md:min-h-[150px] flex items-start px-0 md:px-16"            >
+                className="relative flex min-h-[20rem] items-start px-0 pb-14 sm:min-h-[16rem] md:min-h-[150px] md:px-16 md:pb-0"
+            >
                 <button
                     onClick={() => go(index - 1, -1)}
                     className={`${arrowClass} left-0`}
@@ -63,7 +64,7 @@ export default function AboutTextRotator() {
                         animate="center"
                         exit="exit"
                         transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-xl md:text-2xl font-light leading-relaxed max-w-2xl mx-auto md:mx-0 text-justify"
+                        className="mx-auto max-w-2xl text-justify text-base font-light leading-relaxed sm:text-lg md:mx-0 md:text-2xl"
                         style={{
                             background: 'linear-gradient(90deg, #94A3B8 0%, #F8FAFC 60%)',
                             WebkitBackgroundClip: 'text',

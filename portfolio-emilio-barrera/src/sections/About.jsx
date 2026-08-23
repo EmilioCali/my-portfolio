@@ -19,7 +19,7 @@ const container = {
 
 export default function About() {
     return (
-        <section data-cursor="dark" className="bg-black text-white pt-20 md:pt-24 pb-32 md:pb-48">
+        <section data-cursor="dark" className="overflow-hidden bg-black pt-16 pb-20 text-white sm:pt-20 sm:pb-32 md:pt-24 md:pb-48">
             <Container className="max-w-screen-2xl">
 
                 {/* Título general de la sección, centrado */}
@@ -28,7 +28,7 @@ export default function About() {
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.4 }}
                     variants={fadeUp}
-                    className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] text-white uppercase mb-16 md:mb-24 text-center"
+                    className="mb-12 text-center text-[clamp(2.4rem,11vw,4.5rem)] font-bold leading-[1.05] tracking-tight text-white uppercase sm:mb-16 md:mb-24"
                 >
                     Desarrollador
                     <br />
@@ -45,7 +45,7 @@ export default function About() {
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.4 }}
                         variants={container}
-                        className="flex flex-col gap-8 text-center md:text-left w-full md:max-w-lg lg:max-w-2xl shrink-0"
+                        className="flex w-full min-w-0 flex-col gap-8 text-center md:max-w-lg md:text-left lg:max-w-2xl shrink-0"
                     >
                         <motion.div variants={fadeUp}>
                             <AboutTextRotator />

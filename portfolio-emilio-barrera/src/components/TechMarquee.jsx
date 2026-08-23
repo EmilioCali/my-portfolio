@@ -46,16 +46,16 @@ function TechCard({ tech, onHoverChange }) {
     <div
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      className="flex items-center gap-3 shrink-0 px-10 md:px-14 py-8"
+      className="flex shrink-0 items-center gap-2 px-6 py-5 sm:gap-3 sm:px-10 sm:py-8 md:px-14"
     >
       {IconComponent && (
         <IconComponent
-          className="text-3xl md:text-4xl transition-colors duration-300"
+          className="text-2xl transition-colors duration-300 sm:text-3xl md:text-4xl"
           style={{ color: hovered ? brandColor : 'rgba(255,255,255,0.4)' }}
         />
       )}
       <span
-        className="text-xl md:text-2xl font-medium whitespace-nowrap transition-colors duration-300"
+        className="whitespace-nowrap text-base font-medium transition-colors duration-300 sm:text-xl md:text-2xl"
         style={{ color: hovered ? '#FFFFFF' : 'rgba(255,255,255,0.4)' }}
       >
         {tech.name}

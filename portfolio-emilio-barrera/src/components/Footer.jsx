@@ -44,14 +44,14 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer data-cursor="dark" className="border-t border-white/15 bg-black py-7 text-white sm:py-8">
+    <footer data-cursor="dark" className="overflow-hidden border-t border-white/15 bg-black py-6 text-white sm:py-8">
       <Container className="max-w-screen-2xl">
-        <div className="flex flex-col gap-5 text-xs sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-mono tracking-wide text-white/45">
+        <div className="flex flex-col gap-4 text-xs sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-[19rem] font-mono leading-relaxed tracking-wide text-white/55 sm:max-w-none">
             © {currentYear} Emilio Cali. Todos los derechos reservados.
           </p>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <span className="hidden font-mono text-[10px] uppercase tracking-[0.2em] text-white/35 sm:inline">
               Redes Sociales
             </span>
@@ -65,7 +65,7 @@ export default function Footer() {
                   rel="noreferrer"
                   aria-label={label}
                   title={label}
-                  className={`flex h-8 w-8 items-center justify-center rounded-full border border-white/15 transition-colors ${className}`}
+                  className={`flex h-9 w-9 items-center justify-center rounded-full border border-white/15 transition-colors ${className}`}
                 >
                   <Icon size={15} />
                 </a>

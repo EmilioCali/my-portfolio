@@ -21,7 +21,7 @@ const itemVariants = {
 
 export default function Hero() {
     return (
-        <section data-cursor="light" className="relative min-h-screen flex items-center text-text-light">
+        <section data-cursor="light" className="relative flex min-h-svh items-center overflow-hidden py-16 text-text-light sm:py-20">
             <HeroBackground />
 
             <Container>
@@ -41,7 +41,7 @@ export default function Hero() {
 
                     <motion.h1
                         variants={itemVariants}
-                        className="text-hero md:text-hero-lg font-bold tracking-tight leading-[1.02] font-sans"
+                        className="text-[clamp(3rem,13vw,6.5rem)] font-bold tracking-tight leading-[1.02] font-sans"
                     >
                         Emilio Sebastián
                         <br />
@@ -55,7 +55,7 @@ export default function Hero() {
                         Desarrollo y dispuesto aprender constantemente nuevas tecnologías para crear experiencias web únicas y funcionales.
                     </motion.p>
 
-                    <motion.div variants={itemVariants} className="flex gap-4 mt-4">
+                    <motion.div variants={itemVariants} className="mt-4 flex flex-col gap-3 sm:flex-row sm:gap-4">
                         <Button variant="primary" as="a" href="/CV_Emilio_Barrera.pdf" download="CV_Emilio_Barrera.pdf">
                             Descargar CV
                         </Button>
