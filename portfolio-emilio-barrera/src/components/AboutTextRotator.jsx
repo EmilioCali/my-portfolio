@@ -9,7 +9,7 @@ const statements = [
 
     'Soy un desarrollador Full Stack apasionado por construir aplicaciones modernas combinando una arquitectura sólida, buenas prácticas de desarrollo y experiencias de usuario intuitivas. Disfruto transformar ideas en productos digitales funcionales y escalables, cuidando tanto la estructura interna del software como los detalles visuales que permiten crear aplicaciones profesionales, eficientes y agradables para quienes las utilizan.',
 
-    'Actualmente soy Co-Fundador de Environment IA junto a mi socio Edgar Catalán, una startup enfocada en el desarrollo de software, automatización de procesos e integración de inteligencia artificial en soluciones reales para empresas guatemaltecas. Nuestro objetivo es aprovechar la tecnología para optimizar procesos, resolver necesidades específicas y demostrar cómo las herramientas digitales pueden convertirse en aliados estratégicos para el crecimiento de los negocios.',
+    'Actualmente soy Co-Fundador de environment junto a un socio, una startup enfocada en el desarrollo de software, automatización de procesos e integración de inteligencia artificial en soluciones reales para empresas guatemaltecas. Nuestro objetivo es aprovechar la tecnología para optimizar procesos, resolver necesidades específicas y demostrar cómo las herramientas digitales pueden convertirse en aliados estratégicos para el crecimiento de los negocios.',
 ]
 
 const AUTOPLAY_MS = 5500
